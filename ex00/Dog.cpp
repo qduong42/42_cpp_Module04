@@ -36,7 +36,7 @@ Dog::~Dog()
 //	MEMBER FUNCTIONS
 
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
 	std::cout << getType() << " made WOOF WOOF the Dogs out!" << std::endl;
 }

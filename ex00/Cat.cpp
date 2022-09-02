@@ -36,7 +36,7 @@ Cat::~Cat()
 //	MEMBER FUNCTIONS
 
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << getType() << " made purrrr I'm coming for your skin!" << std::endl;
 }

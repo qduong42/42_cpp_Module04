@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/02 14:40:59 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/02 16:07:54 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS := main.cpp Animal.cpp Dog.cpp Cat.cpp
 
+HEADER = *.hpp
+
 OBJS:= $(SRCS:%.cpp=%.o)
 
 NL		:= \n
@@ -32,7 +34,7 @@ PURPLE	:= \033[35;1m
 
 all:$(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo ${Q}${NL}${GREEN} "Compilation Done" ${NC}${Q}
 	./$(NAME)
@@ -40,6 +42,9 @@ $(NAME): $(OBJS)
 $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
+test: 
+	$(CC) $(CFLAGS) example.cpp Cat.cpp Dog.cpp Animal.cpp -o test
+	./test
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)
 
