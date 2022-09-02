@@ -2,17 +2,17 @@
 
 //	CONSTRUCTORS | DESTRUCTOR
 
-Dog::Dog() : Animal()
+Dog::Dog() : Animal("Dog")
 {
-	std::cout << "Dog " << this->_type << " default constructed!" << std::endl;
+	std::cout << this->_type << " default constructed!" << std::endl;
 }
 
-Dog::Dog(std::string name) : Animal(name)
-{
-	std::cout << "Dog " << this->_type << " typed constructed!" << std::endl;
-}
+// Dog::Dog(std::string type) : Animal(type)
+// {
+// 	std::cout << "Dog " << this->_type << " typed constructed!" << std::endl;
+// }
 
-Dog::Dog(Dog const& obj)
+Dog::Dog(Dog const& obj) : Animal()
 {
 	std::cout << "Dog copy constructor called!" << std::endl;
 	*this = obj;
@@ -30,7 +30,7 @@ Dog& Dog::operator=(Dog const& obj)
 
 Dog::~Dog()
 {
-	std::cout << "Dog " << this->_type << " destructed!" << std::endl;
+	std::cout << this->_type << " destructed!" << std::endl;
 }
 
 //	MEMBER FUNCTIONS
@@ -38,5 +38,5 @@ Dog::~Dog()
 
 void Dog::makeSound()
 {
-	std::cout << "Dog " << getType() << " made WOOF WOOF the Dogs out!" << std::endl;
+	std::cout << getType() << " made WOOF WOOF the Dogs out!" << std::endl;
 }

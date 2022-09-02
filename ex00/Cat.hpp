@@ -9,7 +9,7 @@ class Cat : public Animal
 	public:
 
 		Cat();
-		Cat(std::string name);
+		Cat(std::string type);
 		Cat(Cat const& obj);
 		Cat& operator=(Cat const& obj);
 		~Cat();

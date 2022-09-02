@@ -1,0 +1,1 @@
+1. Pure virtual functions require no implementation!

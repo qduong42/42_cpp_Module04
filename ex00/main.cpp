@@ -14,13 +14,12 @@ int main()
 	Animal Tim = Sam;
 	Tim.makeSound();
 	std::cout << "====Dog Mike====" << std::endl;
-	Dog Mike("German Shepherd");
+	Dog Mike;
 	Mike.makeSound();
 	std::cout << "====Dog Reese====" << std::endl;
 	Dog Reese(Mike);
-	std::cout << Reese.getType() << std::endl;
 	std::cout << "====Cat Pain====" << std::endl;
-	Cat Pain("Munchkin");
+	Cat Pain;
 	Pain.makeSound();
 	std::cout << "====Destructions====" << std::endl;
 	return (0);
