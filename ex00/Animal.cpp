@@ -44,3 +44,8 @@ void Animal::setType(std::string const& type)
 {
 	this->_type = type;
 }
+
+void Animal::makeSound()
+{
+	std:: cout << "Animal " << getType() << " made unspecified animal noises *SCREECH*!" << std::endl;
+}
