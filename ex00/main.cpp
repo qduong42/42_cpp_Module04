@@ -1,4 +1,5 @@
 #include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {
@@ -18,6 +19,9 @@ int main()
 	std::cout << "====Dog Reese====" << std::endl;
 	Dog Reese(Mike);
 	std::cout << Reese.getType() << std::endl;
+	std::cout << "====Cat Pain====" << std::endl;
+	Cat Pain("Munchkin");
+	Pain.makeSound();
 	std::cout << "====Destructions====" << std::endl;
 	return (0);
 }
