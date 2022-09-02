@@ -12,8 +12,9 @@ class Animal
 		Animal(Animal const& obj);
 		Animal& operator=(Animal const& obj);
 		~Animal();
-
-	private:
+		std::string const& getType()const;
+		void setType(std::string const& type);
+	protected:
 
 		std::string _type;
 };

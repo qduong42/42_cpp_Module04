@@ -30,8 +30,17 @@ Animal& Animal::operator=(Animal const& obj)
 
 Animal::~Animal()
 {
-		std::cout << "Animal " << this->_type << " destructed!" << std::endl;
+	std::cout << "Animal " << this->_type << " destructed!" << std::endl;
 }
 
 //	MEMBER FUNCTIONS
 
+std::string const& Animal::getType()const
+{
+	return (this->_type);
+}
+
+void Animal::setType(std::string const& type)
+{
+	this->_type = type;
+}
