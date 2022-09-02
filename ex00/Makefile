@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/02 16:07:54 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/02 16:22:23 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,10 @@ $(NAME): $(OBJS) $(HEADER)
 $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
+wrong:
+	$(CC) $(CFLAGS) example_wrong.cpp WrongCat.cpp WrongAnimal.cpp -o wrong
+	./wrong
+
 test: 
 	$(CC) $(CFLAGS) example.cpp Cat.cpp Dog.cpp Animal.cpp -o test
 	./test
@@ -56,7 +60,7 @@ clean:
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) test
+	$(RM) $(NAME) test wrong
 
 re:	fclean all
 
