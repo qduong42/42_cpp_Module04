@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/02 17:13:01 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/14 19:37:30 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,12 @@ $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 wrong:
-	$(CC) $(CFLAGS) example_wrong.cpp WrongCat.cpp WrongAnimal.cpp -o wrong
+	$(CC) $(CFLAGS) WrongCat.cpp WrongAnimal.cpp brain.cpp -o wrong
 	./wrong
 
-test: 
-	$(CC) $(CFLAGS) example.cpp Cat.cpp Dog.cpp Animal.cpp -o test
-	./test
+main: fclean
+	$(CC) $(CFLAGS) main.cpp Cat.cpp Dog.cpp Animal.cpp brain.cpp WrongAnimal.cpp WrongCat.cpp -o main.bi
+	
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)
 
@@ -60,7 +60,7 @@ clean:
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) test wrong
+	$(RM) $(NAME) test wrong main
 
 re:	fclean all
 
