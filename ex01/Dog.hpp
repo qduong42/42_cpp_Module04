@@ -1,6 +1,7 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #include <iostream>
 
@@ -15,8 +16,10 @@ class Dog : public Animal
 		~Dog();
 
 		virtual void makeSound() const;
-	private:
+		Brain *get_Brain()const;
 
+	private:
+		Brain* _brain;
 
 };
 

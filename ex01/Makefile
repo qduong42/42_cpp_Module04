@@ -6,11 +6,11 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/02 16:22:23 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/02 17:13:01 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := ex00.bi
+NAME := ex01.bi
 
 CC := c++
 
@@ -18,7 +18,7 @@ RM := rm -rf
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS := main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS := example.cpp Animal.cpp Dog.cpp Cat.cpp brain.cpp
 
 HEADER = *.hpp
 

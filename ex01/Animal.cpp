@@ -4,7 +4,7 @@
 
 Animal::Animal() : _type("\"Random Animal\"")
 {
-		std::cout << "Animal " << this->_type << " default constructed!" << std::endl;
+	std::cout << "Animal " << this->_type << " default constructed!" << std::endl;
 }
 
 Animal::Animal(std::string type) : _type(type)

@@ -4,6 +4,7 @@
 
 Cat::Cat() : Animal("Cat")
 {
+	this->_brain = new Brain();
 	std::cout << this->_type << " default constructed!" << std::endl;
 }
 
@@ -24,6 +25,7 @@ Cat& Cat::operator=(Cat const& obj)
 	if (this != &obj)
 	{
 		this->setType(obj.getType());
+		this->_brain = new Brain();
 	}
 	return (*this);
 }
@@ -31,6 +33,7 @@ Cat& Cat::operator=(Cat const& obj)
 Cat::~Cat()
 {
 	std::cout << this->_type << " destructed!" << std::endl;
+	delete this->_brain;
 }
 
 //	MEMBER FUNCTIONS
@@ -39,4 +42,9 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << getType() << " made purrrr I'm coming for your skin!" << std::endl;
+}
+
+Brain *Cat::get_Brain()const
+{
+	return (this->_brain);
 }

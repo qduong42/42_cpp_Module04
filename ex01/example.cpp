@@ -1,18 +1,15 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "stdio.h"
 
 int main()
 {
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-j->makeSound();
-meta->makeSound();
-delete meta;
-delete j;
-delete i;
-return 0;
+	const Dog* j = new Dog();
+	const Cat* i = new Cat();
+	std::cout << "Brain of dog: " << j->get_Brain() << std::endl;
+	std::cout << "Brain of cat: " << i->get_Brain() << std::endl;
+	j->makeSound();
+	delete j;//should not create a leak
+	delete i;
+	return 0;
 }
