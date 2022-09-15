@@ -42,7 +42,7 @@ Cure* Cure::clone() const
 {
 	if (DEBUG)
 		std::cout << C_GREY << "Cure clone()" C_DEF << std::endl;
-	Cure *pointer = new Cure;
+	Cure *pointer = new Cure();
 	return (pointer);
 }
 

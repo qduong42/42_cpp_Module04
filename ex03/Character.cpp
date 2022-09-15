@@ -6,8 +6,17 @@
 Character::Character()
 {
 	if (DEBUG) 
-	std::cout << "Character default constructed" << std::endl;
-	std::cout << C_GREY << "" C_DEF << std::endl;
+	std::cout << C_GREY << "Character default constructed" C_DEF << std::endl;
+	for (size_t i = 0; i < 4; i++)
+	{
+		arr[i] = NULL;
+	}
+}
+
+Character::Character(std::string name): _name(name)
+{
+	if (DEBUG) 
+	std::cout << C_GREY << "Character default constructed" C_DEF << std::endl;
 }
 
 Character::Character(Character const& obj):_name(obj.getName())
@@ -43,4 +52,22 @@ Character::~Character()
 std::string const & Character::getName() const
 {
 	return (this->_name);
+}
+
+void Character::equip(AMateria* m)
+{
+	bool	full;
+
+	full = true;
+	for (size_t i = 0; i < 4; i++)
+	{
+		if (this->arr[i] == NULL)
+		{
+			full = false;
+			this->arr[i] = m;
+			std::cout << "Materia successfully equipped" << std::endl;
+		}
+	}
+	if (full)
+		std::cout << "Inventory full" << std::endl;
 }

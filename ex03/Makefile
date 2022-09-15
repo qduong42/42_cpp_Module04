@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/15 12:09:55 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/15 13:31:11 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM := rm -rf
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98 -g3
 
-SRCS := AMateria.cpp Cure.cpp main.cpp
+SRCS := AMateria.cpp Cure.cpp main.cpp Character.cpp ICharacter.cpp
 
 HEADER = *.hpp
 

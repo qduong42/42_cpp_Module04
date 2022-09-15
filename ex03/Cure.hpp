@@ -19,6 +19,7 @@ class Cure : public AMateria
 		~Cure();
 		virtual Cure* clone() const;
 		// virtual void use(ICharacter& target);
+
 	private:
 
 };
