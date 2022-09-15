@@ -2,6 +2,7 @@
 #define CURE_HPP
 
 #include <iostream>
+#include <string>
 #include "AMateria.hpp"
 #ifndef DEBUG
 # define DEBUG 0
@@ -12,13 +13,13 @@ class Cure : public AMateria
 	public:
 
 		Cure();
+		Cure(std::string const& type);
 		Cure(Cure const& obj);
 		Cure& operator=(Cure const& obj);
 		~Cure();
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		virtual Cure* clone() const;
+		// virtual void use(ICharacter& target);
 	private:
-
 
 };
 

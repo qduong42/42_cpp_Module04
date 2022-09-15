@@ -6,14 +6,16 @@
 /*   By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 08:18:13 by qduong            #+#    #+#             */
-/*   Updated: 2022/09/15 08:19:15 by qduong           ###   ########.fr       */
+/*   Updated: 2022/09/15 12:20:31 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Cure.hpp"
 #include "AMateria.hpp"
+#include "colors.hpp"
 
 int main()
 {
-	
+	Cure me("cure");
 	return (0);
 }

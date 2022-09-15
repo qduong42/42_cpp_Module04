@@ -2,10 +2,10 @@
 #define AMATERIA_HPP
 
 #include <iostream>
-#include "ICharacter.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include <string>
+// #include "ICharacter.hpp"
+// #include "Character.hpp"
+// #include "Ice.hpp"
 
 #ifndef DEBUG
 # define DEBUG 0
@@ -23,7 +23,7 @@ class AMateria
 
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		// virtual void use(ICharacter& target);
 
 	protected:
 

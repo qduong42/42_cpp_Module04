@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/15 08:17:51 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/15 12:09:55 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC := c++
 
 RM := rm -rf
 
-CFLAGS := -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -g3
 
-SRCS := 
+SRCS := AMateria.cpp Cure.cpp main.cpp
 
 HEADER = *.hpp
 
@@ -42,8 +42,9 @@ $(NAME): $(OBJS) $(HEADER)
 $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
-debug: $(OBJS) $(HEADER)
-	$(CC) $(CFLAGS) -D DEBUG=1 $(OBJS) -o debug
+debug: $(SRCS) $(HEADER)
+	$(CC) $(CFLAGS) -D DEBUG=1 $(SRCS) -o debug
+	./debug
 
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)
@@ -56,7 +57,7 @@ clean:
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) test wrong main
+	$(RM) $(NAME) test wrong main debug
 
 re:	fclean all
 
