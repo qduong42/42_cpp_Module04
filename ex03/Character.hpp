@@ -17,9 +17,6 @@ class Character : virtual public ICharacter
 		Character(Character const& obj);
 		Character& operator=(Character const& obj);
 		~Character();
-
-	protected:
-
 		virtual std::string const & getName() const;
 		virtual void equip(AMateria* m);
 		// virtual void unequip(int idx);

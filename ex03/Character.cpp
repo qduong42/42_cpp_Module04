@@ -1,5 +1,6 @@
 #include "Character.hpp"
 #include "colors.hpp"
+#include <stdio.h>
 
 //	CONSTRUCTORS | DESTRUCTOR
 
@@ -9,7 +10,7 @@ Character::Character()
 	std::cout << C_GREY << "Character default constructed" C_DEF << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
-		arr[i] = NULL;
+		this->arr[i] = NULL;
 	}
 }
 
@@ -17,9 +18,13 @@ Character::Character(std::string name): _name(name)
 {
 	if (DEBUG) 
 	std::cout << C_GREY << "Character default constructed" C_DEF << std::endl;
+	for (size_t i = 0; i < 4; i++)
+	{
+		this->arr[i] = NULL;
+	}
 }
 
-Character::Character(Character const& obj):_name(obj.getName())
+Character::Character(Character const& obj):ICharacter(), _name(obj.getName())
 {
 	if (DEBUG) 
 		std::cout << C_GREY << "Character copy constructed" C_DEF << std::endl;
@@ -66,8 +71,10 @@ void Character::equip(AMateria* m)
 			full = false;
 			this->arr[i] = m;
 			std::cout << "Materia successfully equipped" << std::endl;
+			break ;
 		}
 	}
 	if (full)
 		std::cout << "Inventory full" << std::endl;
 }
+
