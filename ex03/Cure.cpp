@@ -46,9 +46,9 @@ Cure* Cure::clone() const
 	return (pointer);
 }
 
-// void Cure::use(ICharacter& target)
-// {
-// 	if (DEBUG) 
-// 		std::cout << "Cure Use()" << std::endl;
-// 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-// }
+void Cure::use(ICharacter& target)
+{
+	if (DEBUG) 
+		std::cout << "Cure Use()" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

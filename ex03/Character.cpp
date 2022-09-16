@@ -17,14 +17,14 @@ Character::Character()
 Character::Character(std::string name): _name(name)
 {
 	if (DEBUG) 
-	std::cout << C_GREY << "Character default constructed" C_DEF << std::endl;
+	std::cout << C_GREY << "Character type constructed" C_DEF << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
 		this->arr[i] = NULL;
 	}
 }
 
-Character::Character(Character const& obj):ICharacter(), _name(obj.getName())
+Character::Character(Character const& obj): ICharacter(), _name(obj.getName())
 {
 	if (DEBUG) 
 		std::cout << C_GREY << "Character copy constructed" C_DEF << std::endl;
@@ -37,10 +37,19 @@ Character& Character::operator=(Character const& obj)
 		std::cout << C_GREY << "Character operator = overload" C_DEF << std::endl;
 	if (this != &obj)
 	{
+		for (size_t i = 0; i < 4; i++)
+		{
+			if (this->arr[i])
+			{
+				delete this->arr[i];
+				this->arr[i] = NULL;
+			}
+			
+		}
 		this->_name = obj.getName();
 		for (size_t i = 0; i < 4; i++)
 		{
-			this->arr[i] = obj.arr[i];
+			this->arr[i] = obj.arr[i]->clone();
 		}
 	}
 	return (*this);
@@ -50,6 +59,10 @@ Character::~Character()
 {
 	if (DEBUG)
 		std::cout << C_GREY << "Character default destructed" C_DEF << std::endl;
+	for (size_t i = 0; i < 4; i++)
+	{
+		delete this->arr[i];
+	}
 }
 
 //	MEMBER FUNCTIONS
@@ -68,7 +81,7 @@ void Character::equip(AMateria* m)
 	{
 		if (m == this->arr[i])
 		{
-			std::cout << "Materia already equipped!" << std::endl;
+			std::cout << C_GREY << "Materia already equipped!" << C_DEF << std::endl;
 			return ;
 		}
 	}
@@ -78,7 +91,7 @@ void Character::equip(AMateria* m)
 		{
 			full = false;
 			this->arr[i] = m;
-			std::cout << "Materia successfully equipped" << std::endl;
+			std::cout << C_GREY << "Materia successfully equipped" << C_DEF << std::endl;
 			break ;
 		}
 	}
@@ -89,22 +102,24 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
-		std::cout << "Invalid index, inv only has 0, 1, 2, 3" << std::endl;
-	else if (this->arr[idx] != NULL)
+		std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
+	else if (this->arr[idx])
 	{
-		std::cout << "Materia unequipped!" << std::endl;
+		std::cout << C_GREY << "Materia unequipped!" << C_DEF << std::endl;
 		this->arr[idx] = NULL;
 	}
 	else
 	{
-		std::cout << "Materia not equipped!" << std::endl;
+		std::cout << C_GREY << "Materia not equipped!" << C_DEF << std::endl;
 	}
 }
 
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
-		std::cout << "Invalid index, inv only has 0, 1, 2, 3" << std::endl;
-	if (this->arr[idx])
-		this->arr[idx]->AMateria::use(target);
+		std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
+	else if (this->arr[idx])
+		this->arr[idx]->use(target);
+	else
+		std::cout << C_GREY << "No Materia equipped at that inv idx" << C_DEF << std::endl;
 }

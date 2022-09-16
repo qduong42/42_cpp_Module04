@@ -17,6 +17,7 @@ Ice::Ice(std::string const& type): AMateria(type)
 
 Ice::Ice(Ice const& obj) : AMateria()
 {
+	(void) obj;
 	if (DEBUG)
 	std::cout << C_GREY << "Ice copy constructed" C_DEF << std::endl;
 }
@@ -45,9 +46,9 @@ Ice* Ice::clone() const
 	return (pointer);
 }
 
-// void Ice::use(ICharacter& target)
-// {
-// 	if (DEBUG) 
-// 		std::cout << "Ice Use()" << std::endl;
-// 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-// }
+void Ice::use(ICharacter& target)
+{
+	if (DEBUG) 
+		std::cout << "Ice Use()" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

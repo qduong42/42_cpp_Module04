@@ -18,7 +18,7 @@ class Ice : public AMateria
 		~Ice();
 
 		virtual Ice* clone() const;
-		// virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target);
 
 	private:
 

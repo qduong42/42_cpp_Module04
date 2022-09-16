@@ -45,5 +45,5 @@ std::string const& AMateria::getType()const
 
 void AMateria::use(ICharacter& target)
 {
-		std::cout << "Amateria use() " << this->_type << "at " << target.getName() << std::endl;
+		std::cout << "Amateria use() " << this->_type << " at " << target.getName() << std::endl;
 }
