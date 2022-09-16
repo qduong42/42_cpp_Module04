@@ -24,11 +24,20 @@ Character::Character(std::string name): _name(name)
 	}
 }
 
-Character::Character(Character const& obj): ICharacter(), _name(obj.getName())
+Character::Character(Character const& obj): _name(obj.getName())
 {
 	if (DEBUG) 
 		std::cout << C_GREY << "Character copy constructed" C_DEF << std::endl;
-	(*this) = obj;
+	this->_name = obj.getName();
+	for (size_t i = 0; i < 4; i++)
+	{
+		this->arr[i] = NULL;
+	}
+	for (size_t i = 0; i < 4; i++)
+	{
+		if (obj.arr[i])
+			this->arr[i] = obj.arr[i]->clone();
+	}
 }
 
 Character& Character::operator=(Character const& obj)
@@ -44,12 +53,12 @@ Character& Character::operator=(Character const& obj)
 				delete this->arr[i];
 				this->arr[i] = NULL;
 			}
-			
 		}
 		this->_name = obj.getName();
 		for (size_t i = 0; i < 4; i++)
 		{
-			this->arr[i] = obj.arr[i]->clone();
+			if (obj.arr[i])
+				this->arr[i] = obj.arr[i]->clone();
 		}
 	}
 	return (*this);

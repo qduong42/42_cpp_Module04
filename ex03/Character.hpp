@@ -24,8 +24,8 @@ class Character : virtual public ICharacter
 
 	private:
 
-		std::string _name;
 		AMateria *arr[4];
+		std::string _name;
 };
 
 #endif
