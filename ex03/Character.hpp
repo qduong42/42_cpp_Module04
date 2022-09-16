@@ -19,8 +19,8 @@ class Character : virtual public ICharacter
 		~Character();
 		virtual std::string const & getName() const;
 		virtual void equip(AMateria* m);
-		// virtual void unequip(int idx);
-		// virtual void use(int idx, ICharacter& target);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 
 	private:
 

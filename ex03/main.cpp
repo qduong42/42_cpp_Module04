@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 08:18:13 by qduong            #+#    #+#             */
-/*   Updated: 2022/09/15 14:06:15 by qduong           ###   ########.fr       */
+/*   Updated: 2022/09/16 09:05:37 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,14 @@ int main()
 	Character a("Bob");
 	std::cout << "Equip Tests:" << std::endl;
 	a.equip(p1);
-	a.equip(p2);
-	a.equip(p3);
-	a.equip(p4);
-	a.equip(p5);
+	a.equip(p1);
+	a.equip(p1);
+	a.equip(p1);
+	a.equip(p1);
+	a.unequip(0);
+	a.unequip(1);
+	a.unequip(2);
+	a.unequip(3);
+	a.equip(p1);
 	return (0);
 }

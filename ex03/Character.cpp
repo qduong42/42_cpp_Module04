@@ -66,6 +66,14 @@ void Character::equip(AMateria* m)
 	full = true;
 	for (size_t i = 0; i < 4; i++)
 	{
+		if (m == this->arr[i])
+		{
+			std::cout << "Materia already equipped!" << std::endl;
+			return ;
+		}
+	}
+	for (size_t i = 0; i < 4; i++)
+	{
 		if (this->arr[i] == NULL)
 		{
 			full = false;
@@ -78,3 +86,25 @@ void Character::equip(AMateria* m)
 		std::cout << "Inventory full" << std::endl;
 }
 
+void Character::unequip(int idx)
+{
+	if (idx < 0 || idx > 3)
+		std::cout << "Invalid index, inv only has 0, 1, 2, 3" << std::endl;
+	else if (this->arr[idx] != NULL)
+	{
+		std::cout << "Materia unequipped!" << std::endl;
+		this->arr[idx] = NULL;
+	}
+	else
+	{
+		std::cout << "Materia not equipped!" << std::endl;
+	}
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (idx < 0 || idx > 3)
+		std::cout << "Invalid index, inv only has 0, 1, 2, 3" << std::endl;
+	if (this->arr[idx])
+		this->arr[idx]->AMateria::use(target);
+}
