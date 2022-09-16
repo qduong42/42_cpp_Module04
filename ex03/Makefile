@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/16 15:41:08 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/16 18:15:19 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 debug: $(SRCS) $(HEADER)
-	$(CC) $(CFLAGS) -D DEBUG=1 $(SRCS) -o debug
+	$(CC) $(CFLAGS) -D DEBUG=1 $(SRCS) -o debug.bi
 
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)

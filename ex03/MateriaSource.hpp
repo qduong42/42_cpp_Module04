@@ -4,7 +4,7 @@
 #include <iostream>
 #include "IMateriaSource.hpp"
 
-class MateriaSource : public IMateriaSource
+class MateriaSource : virtual public IMateriaSource
 {
 	public:
 
@@ -17,7 +17,7 @@ class MateriaSource : public IMateriaSource
 
 	private:
 
-
+		AMateria *mem[4];
 };
 
 #endif

@@ -70,7 +70,8 @@ Character::~Character()
 		std::cout << C_GREY << "Character default destructed" C_DEF << std::endl;
 	for (size_t i = 0; i < 4; i++)
 	{
-		delete this->arr[i];
+		if (this->arr[i])
+			delete this->arr[i];
 	}
 }
 
@@ -100,7 +101,8 @@ void Character::equip(AMateria* m)
 		{
 			full = false;
 			this->arr[i] = m;
-			std::cout << C_GREY << "Materia successfully equipped" << C_DEF << std::endl;
+			if (DEBUG)
+				std::cout << C_GREY << "Materia successfully equipped" << C_DEF << std::endl;
 			break ;
 		}
 	}
@@ -114,12 +116,14 @@ void Character::unequip(int idx)
 		std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
 	else if (this->arr[idx])
 	{
-		std::cout << C_GREY << "Materia unequipped!" << C_DEF << std::endl;
+		if (DEBUG)
+			std::cout << C_GREY << "Materia unequipped!" << C_DEF << std::endl;
 		this->arr[idx] = NULL;
 	}
 	else
 	{
-		std::cout << C_GREY << "Materia not equipped!" << C_DEF << std::endl;
+		if (DEBUG)
+			std::cout << C_GREY << "Materia not equipped!" << C_DEF << std::endl;
 	}
 }
 
@@ -130,5 +134,8 @@ void Character::use(int idx, ICharacter& target)
 	else if (this->arr[idx])
 		this->arr[idx]->use(target);
 	else
-		std::cout << C_GREY << "No Materia equipped at that inv idx" << C_DEF << std::endl;
+	{
+		if (DEBUG)
+			std::cout << C_GREY << "No Materia equipped at that inv idx" << C_DEF << std::endl;
+	}
 }
