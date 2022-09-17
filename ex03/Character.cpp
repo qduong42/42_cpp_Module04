@@ -111,7 +111,10 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
-		std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
+	{
+		if (DEBUG)
+			std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
+	}
 	else if (this->arr[idx])
 	{
 		if (DEBUG)
@@ -128,7 +131,10 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
-		std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
+	{
+		if (DEBUG)
+			std::cout << C_GREY << "Invalid index, inv only has 0, 1, 2, 3" << C_DEF << std::endl;
+	}
 	else if (this->arr[idx])
 		this->arr[idx]->use(target);
 	else

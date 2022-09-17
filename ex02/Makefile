@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/17 16:38:01 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/17 16:42:02 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,11 +53,11 @@ leaks :
 	leaks --atExit -- ./$(NAME)
 
 clean:
-	$(RM) $(OBJS) main_test.o
+	$(RM) $(OBJS) example.o
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) test wrong main
+	$(RM) $(NAME) ex02.bi example.bi main.bi
 
 re:	fclean all
 

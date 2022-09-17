@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/17 16:32:31 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/17 16:41:04 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ clean:
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) main.bi
+	$(RM) $(NAME) main.bi example.bi
 
 re:	fclean all
 

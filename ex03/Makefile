@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/16 18:19:46 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/17 16:45:28 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,14 @@ all:$(NAME)
 $(NAME): $(OBJS) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo ${Q}${NL}${GREEN} "Compilation Done" ${NC}${Q}
+	./$(NAME)
 
 $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
 debug: $(SRCS) $(HEADER)
 	$(CC) $(CFLAGS) -D DEBUG=1 $(SRCS) -o debug.bi
+	./debug.bi
 
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)
@@ -55,7 +57,7 @@ clean:
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) test wrong main debug
+	$(RM) $(NAME) test wrong main debug.bi
 
 re:	fclean all
 
