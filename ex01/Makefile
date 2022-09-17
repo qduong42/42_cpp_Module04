@@ -6,7 +6,7 @@
 #    By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 00:41:55 by qduong            #+#    #+#              #
-#    Updated: 2022/09/14 19:37:30 by qduong           ###   ########.fr        #
+#    Updated: 2022/09/17 16:32:31 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM := rm -rf
 
 CFLAGS := -Wall -Wextra -Werror -std=c++98 -g
 
-SRCS := example.cpp Animal.cpp Dog.cpp Cat.cpp brain.cpp
+SRCS := main.cpp Animal.cpp Dog.cpp Cat.cpp brain.cpp
 
 HEADER = *.hpp
 
@@ -42,12 +42,9 @@ $(NAME): $(OBJS) $(HEADER)
 $(OBJS) : %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
 
-wrong:
-	$(CC) $(CFLAGS) WrongCat.cpp WrongAnimal.cpp brain.cpp -o wrong
-	./wrong
-
-main: fclean
-	$(CC) $(CFLAGS) main.cpp Cat.cpp Dog.cpp Animal.cpp brain.cpp WrongAnimal.cpp WrongCat.cpp -o main.bi
+example: fclean
+	$(CC) $(CFLAGS) example.cpp Cat.cpp Dog.cpp Animal.cpp brain.cpp -o example.bi
+	./example.bi
 	
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)
@@ -56,11 +53,11 @@ leaks :
 	leaks --atExit -- ./$(NAME)
 
 clean:
-	$(RM) $(OBJS) main_test.o
+	$(RM) $(OBJS)
 	$(RM) *.dSYM
 
 fclean:clean
-	$(RM) $(NAME) test wrong main
+	$(RM) $(NAME) main.bi
 
 re:	fclean all
 

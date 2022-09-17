@@ -1,7 +1,5 @@
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 #include "Dog.hpp"
 #include "Brain.hpp"
 
@@ -14,13 +12,12 @@ int	main(void)
 		animal_array[i] = new Cat();
 		animal_array[i + 5] = new Dog();
 	}
-	std::cout << "=======Animal=====" << std::endl;
-	const Animal* animal = new Animal();
-	std::cout << "Hi, I am a " << animal->getType() << " and I don't have a Brain!" << std::endl;
-	animal->makeSound();
-	delete animal;
-	std::cout << std::endl;
-	
+	// std::cout << "=======Animal=====" << std::endl;
+	// const Animal* animal = new Animal();
+	// std::cout << "Hi, I am a " << animal->getType() << " and I don't have a Brain!" << std::endl;
+	// animal->makeSound();
+	// delete animal;
+	// std::cout << std::endl;
 	std::cout << "=======Dog=====" << std::endl;
 	const Dog* dog = new Dog();
 	std::cout << "Hi, I am a " << dog->getType() << " " << std::endl;
@@ -44,22 +41,6 @@ int	main(void)
 	std::cout << "Hi, I am a " << cat_copy->getType() << " " << std::endl;
 	cat_copy->makeSound();
 	delete cat_copy;
-	std::cout << std::endl;
-
-	std::cout << "=======Wrong Animal=====" << std::endl;
-	const WrongAnimal* wrong_animal = new WrongAnimal();
-	std::cout << "Hi, I am a " << wrong_animal->getType() << " " << std::endl;
-	std::cout << "I don't have a Brain yet. :-(\n";
-	wrong_animal->makeSound();
-	delete wrong_animal;
-	std::cout << std::endl;
-
-	std::cout << "=======Wrong Cat=====" << std::endl;
-	const WrongAnimal* wrong_cat = new WrongCat();
-	std::cout << "Hi, I am a " << wrong_cat->getType() << " " << std::endl;
-	std::cout << "I don't have a Brain yet too. :-((\n";
-	wrong_cat->makeSound();
-	delete wrong_cat;
 	std::cout << std::endl;
 
 	std::cout << "=======Array Destructions=====" << std::endl;
