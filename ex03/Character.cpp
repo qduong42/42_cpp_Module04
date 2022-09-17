@@ -84,14 +84,12 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	bool	full;
-
-	full = true;
 	for (size_t i = 0; i < 4; i++)
 	{
 		if (m == this->arr[i])
 		{
-			std::cout << C_GREY << "Materia already equipped!" << C_DEF << std::endl;
+			if (DEBUG)
+				std::cout << C_GREY << "Materia already equipped!" << C_DEF << std::endl;
 			return ;
 		}
 	}
@@ -99,14 +97,14 @@ void Character::equip(AMateria* m)
 	{
 		if (this->arr[i] == NULL)
 		{
-			full = false;
 			this->arr[i] = m;
 			if (DEBUG)
 				std::cout << C_GREY << "Materia successfully equipped" << C_DEF << std::endl;
-			break ;
+			return ;
 		}
 	}
-	if (full)
+	delete m;
+	if (DEBUG)
 		std::cout << "Inventory full" << std::endl;
 }
 

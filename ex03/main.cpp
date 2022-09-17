@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@students.42wolfsburg.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 08:18:13 by qduong            #+#    #+#             */
-/*   Updated: 2022/09/16 18:29:12 by qduong           ###   ########.fr       */
+/*   Updated: 2022/09/17 16:08:46 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,10 @@ int	main(void)
 
 		delete bob;
 		delete me;
+		std::cout << "SRC DESTRUCTION!" << std::endl;
 		delete src;
-
-	}	
+	}
 	{
-		std::cout << "\n-- Inventory/Floor Full --\n" << std::endl;
 		AMateria *mat = new Ice();
 		Character *pete = new Character("Pete");
 		ICharacter *bob = new Character("Bob");
@@ -108,14 +107,6 @@ int	main(void)
 			pete->equip(mat->clone());
 		std::cout << "now one extra " << mat->getType() << std::endl;
 		pete->equip(mat->clone());
-		std::cout << "\nnow filling the floor with " << mat->getType() << std::endl;
-		for (int i = 0; i < 3; i++)
-		{
-			for (int i = 0; i < 4; i++)
-				pete->unequip(i);
-			for (int i = 0; i < 4; i++)
-				pete->equip(mat->clone());
-		}
 		pete->use(3, *bob);
 		ICharacter *pete2 = new Character(*pete);
 		pete2->use(1, *bob);

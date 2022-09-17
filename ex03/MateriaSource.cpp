@@ -73,10 +73,15 @@ void MateriaSource::learnMateria(AMateria* m)
 	{
 		if (this->mem[i] == NULL)
 		{
-			this->mem[i] = m->clone();
-			break ;
+			if (DEBUG)
+				std::cout << "Materia learned!" << std::endl;
+			this->mem[i] = m;
+			return ;
 		}
 	}
+	delete m;
+	if (DEBUG)
+		std::cout << "All memory Materia slots full" << std::endl;
 	return ;
 }
 
@@ -87,7 +92,11 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 		if (this->mem[i] != NULL)
 		{
 			if (this->mem[i]->getType() == type)
-				return (this->mem[i]);
+			{
+				if (DEBUG)
+					std::cout << "Type found!" << std::endl;
+				return (this->mem[i]->clone());
+			}
 		}
 	}
 	if (DEBUG)

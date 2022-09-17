@@ -16,11 +16,10 @@ class Cure : public AMateria
 		Cure(std::string const& type);
 		Cure(Cure const& obj);
 		Cure& operator=(Cure const& obj);
-		~Cure();
+		virtual ~Cure();
+
 		virtual Cure* clone() const;
 		virtual void use(ICharacter& target);
-
-	private:
 
 };
 
