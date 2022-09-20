@@ -22,5 +22,8 @@ int main()
 	Cat Pain;
 	Pain.makeSound();
 	std::cout << "====Destructions====" << std::endl;
+	Animal *tom;
+	tom = new Dog();
+	tom->makeSound();
 	return (0);
 }
