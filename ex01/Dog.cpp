@@ -2,7 +2,7 @@
 
 //	CONSTRUCTORS | DESTRUCTOR
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : Animal("Dog"), _brain(NULL)
 {
 	this->_brain = new Brain();
 	std::cout << this->_type << " default constructed!" << std::endl;
@@ -25,6 +25,8 @@ Dog& Dog::operator=(Dog const& obj)
 	if (this != &obj)
 	{
 		this->setType(obj.getType());
+		if (this->_brain)
+			delete this->_brain;
 		this->_brain = new Brain();
 	}
 	return (*this);

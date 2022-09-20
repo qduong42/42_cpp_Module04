@@ -2,7 +2,7 @@
 
 //	CONSTRUCTORS | DESTRUCTOR
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat() : Animal("Cat"), _brain(NULL)
 {
 	this->_brain = new Brain();
 	std::cout << this->_type << " default constructed!" << std::endl;
@@ -25,6 +25,8 @@ Cat& Cat::operator=(Cat const& obj)
 	if (this != &obj)
 	{
 		this->setType(obj.getType());
+		if (this->_brain)
+			delete this->_brain;
 		this->_brain = new Brain();
 	}
 	return (*this);
