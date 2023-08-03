@@ -2,6 +2,8 @@
 
 ## About
 
+- Ex00 provided a deep dive into constructors as they pertain to inheritance. I learnt which attributes of parent of child classes will be expressed in which circumstances. 
+
 ## Installation & Usage
 
 ### Requirements
